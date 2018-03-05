@@ -2,6 +2,8 @@
 provider "azurerm" {}
 # TODO: Docker provider (for registry)
 provider "docker" {}
+# TODO: Vault provider
+provider "vault"
 
 resource "azurerm_resource_group" "aci_rg" {
   name     = "${var.resource_group['name']}"
@@ -59,6 +61,6 @@ resource "azurerm_container_group" "aci_cg" {
   }
 
   tags {
-    environment = "dev"
+    # environment = "${var.enironment}"
   }
 }
