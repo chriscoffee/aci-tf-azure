@@ -1,4 +1,6 @@
+# TODO: Azure provider
 provider "azurerm" {}
+# TODO: Docker provider (for registry)
 provider "docker" {}
 
 resource "azurerm_resource_group" "aci_rg" {
@@ -24,7 +26,7 @@ resource "azurerm_storage_share" "aci_ss" {
   quota = "${var.storage_share['quota']}"
 }
 
-resource "azurerm_container_group" "aci-cg" {
+resource "azurerm_container_group" "aci_cg" {
   name                = "${var.container_group['name']}"
   location            = "${azurerm_resource_group.aci_rg.location}"
   resource_group_name = "${azurerm_resource_group.aci_rg.name}"
@@ -58,6 +60,5 @@ resource "azurerm_container_group" "aci-cg" {
 
   tags {
     environment = "dev"
-    BillingIdentifier = "TIS"
   }
 }
