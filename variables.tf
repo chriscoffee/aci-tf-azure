@@ -64,5 +64,5 @@ variable "environment_variables" {
 }
 
 variable "command" {
-    descirption = "A command line to be run on the container. Changing this forces a new resource to be created."
+    description = "A command line to be run on the container. Changing this forces a new resource to be created."
 }

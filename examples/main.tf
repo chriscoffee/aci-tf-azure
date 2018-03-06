@@ -30,18 +30,28 @@ module "aci" {
         image = "drone/drone:0.8"
         cpu = "0.5"
         memory = "1.5"
-        port = "1234"
+        port = "80"
+
+    }
+
+    container {
+        name = "drone-agent"
+        image = "drone/drone:0.8"
+        cpu = "0.5"
+        memory = "1.5"
+
+        command = "agent"
+
+        environment_variables {
+            DRONE_OPEN = "true"
+            DRONE_HOST = ""
+            DRONE_GITHUB = "true"
+            DRONE_GITHUB_CLIENT = ""
+            DRONE_GITHUB_SECRET = ""
+            DRONE_SECRET = ""
+        }
+
     }
 
     # TODO: Finish the following
-    environment_variables {
-        DRONE_OPEN = "true"
-        DRONE_HOST = ""
-        DRONE_GITHUB = "true"
-        DRONE_GITHUB_CLIENT = ""
-        DRONE_GITHUB_SECRET = ""
-        DRONE_SECRET = ""
-    }
-    
-    command = ""
 }
