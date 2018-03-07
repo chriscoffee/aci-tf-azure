@@ -1,7 +1,4 @@
-variable "provider" {
-  description = "Default credentials for the provider, these are usually picked up from ~/.azure or a SP so not needed and only here for testing framework."
-  type        = "map"
-}
+
 variable "resource_group" {
   description = "The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created."
   type        = "map"
@@ -48,7 +45,6 @@ variable "container_group" {
    */
 }
 
-// This will be filled in with pre-step which is why it's a map
 variable "container" {
   description = "Input the map for the container, required files are name, image, cpu, memory, port"
   type        = "map"
@@ -61,11 +57,6 @@ variable "container" {
         port = ""
     }
    */
-}
-
-variable "environment_variables" {
-  description = "Input the map of environment variables, require fields are name."
-  type        = "map"
 }
 
 variable "command" {

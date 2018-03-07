@@ -1,10 +1,3 @@
-provider "azurerm" {
-  subscription_id = "${var.provider["subscription_id"]}"
-  client_id = "${var.provider["client_id"]}"
-  tenant_id = "${var.provider["tenant_id"]}"
-  skip_credentials_validation = ""
-}
-
 resource "azurerm_resource_group" "aci_rg" {
   name     = "${var.resource_group["name"]}"
   location = "${var.location}"
@@ -39,9 +32,7 @@ resource "azurerm_container_group" "aci_cg" {
     memory                = "${var.container["memory"]}"
     port                  = "${var.container["port"]}"
 
-    environment_variables = {
-      "${lookup(var.environment_variables)}"
-    }
+    # environment_variables = ""
 
     command               = "${var.command}"
 

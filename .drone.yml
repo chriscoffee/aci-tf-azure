@@ -1,5 +1,5 @@
 pipeline:
-  # Lets use the homeoffice test suite for our tests
+  # Lets use the homeoffice test suite for our tests as I haven't found a better one yet.
   test:
     image: quay.io/ukhomeofficedigital/tf-testrunner
     commands: python -m unittest tests/*_test.py

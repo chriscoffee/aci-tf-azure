@@ -1,6 +1,7 @@
 *.tfstate
 *.tfstate.backup
 .terraform/
-__pycache__
+tests/__pycache__/
+__pycache__/
 .DS_Store/
 .idea/
