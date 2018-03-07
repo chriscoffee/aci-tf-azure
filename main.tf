@@ -18,7 +18,7 @@ resource "azurerm_storage_share" "aci_ss" {
   name = "${var.storage_share["name"]}"
 
   resource_group_name  = "${azurerm_resource_group.aci_rg.name}"
-  storage_account_name = "${azurerm_storage_account.aci_rg.name}"
+  storage_account_name = "${azurerm_storage_account.aci_sa.name}"
 
   quota = "${var.storage_share["quota"]}"
 }
@@ -28,7 +28,6 @@ resource "azurerm_container_group" "aci_cg" {
   location            = "${azurerm_resource_group.aci_rg.location}"
   resource_group_name = "${azurerm_resource_group.aci_rg.name}"
   ip_address_type     = "${var.container_group["ip_address_type"]}"
-  dns_label_name      = "${var.container_group["dns_label_name"]}"
   os_type             = "${var.container_group["os_type"]}"
 
   container {
